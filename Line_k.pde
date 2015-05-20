@@ -8,7 +8,7 @@ class LineK {
   LineK(PVector info) {
     startLoc = info;
     endLoc =  new PVector(info.x, info.y);
-    lifespan = 147;
+    lifespan = 137;
     isDead = false;
     velocity = new PVector (-15, random(-3, 3));
   }

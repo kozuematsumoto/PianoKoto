@@ -8,7 +8,7 @@ class LineP {
   LineP(PVector info) {
     startLoc = info;
     endLoc =  new PVector(info.x, info.y);
-    lifespan = 91;
+    lifespan = 113;
     isDead = false;
       velocity = new PVector (random(-7, 7), 15);
   }
