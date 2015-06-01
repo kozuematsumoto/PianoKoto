@@ -28,10 +28,10 @@ fileName => zakuro.read;
 lowest => float frq2;
 
 0.5 => float ratio;
-0.02 => osc.gain;          
-0.035 => osc2.gain;  
-0.02 => osc3.gain;          
-0.035 => osc4.gain;
+0.03 => osc.gain;          
+0.045 => osc2.gain;  
+0.03 => osc3.gain;          
+0.045 => osc4.gain;
 0.003 => noise.gain;
           
 fun void playZakuro() {
@@ -77,9 +77,12 @@ while (true) {
 		0 => flag;
 		frq2 - ratio => frq2;
 	}
-	osc.freq(96);
-	osc3.freq(48);
-	osc4.freq(147);
+//	osc.freq(96);
+//	osc3.freq(48);
+//	osc4.freq(147);
+	osc.freq(146);
+	osc3.freq(73);
+	osc4.freq(196);
 	osc2.freq(frq2);
 //    <<< "frq2 ", frq2 >>>;
     0.3::second => now;
