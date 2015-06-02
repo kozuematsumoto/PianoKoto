@@ -57,7 +57,7 @@ fun void playBeat() {
 		6::second => now;
 		
 		beat++;
-		<<< beat>>>;
+//		<<< beat>>>;
 	}
 }
 
@@ -65,13 +65,10 @@ spork ~ playDaidai();
 spork ~ playBeat();
 
 while (true) {
-	0.002 => noise.gain;
-	0.003 => osc.gain;
-	0.003 => osc3.gain;
-	0.003 => osc4.gain;
+	0.0035 => noise.gain;
+	0.0035 => osc.gain;
+	0.0035=> osc3.gain;
+	0.0035 => osc4.gain;
 	1::second => now;
 
 }
-
-//5, 11, 13/ 14, (15), 16, 17, (19), 22
-// NRev  JCRev

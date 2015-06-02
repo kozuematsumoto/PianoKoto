@@ -41,12 +41,13 @@ me.dir(-1) => path;
 
 path + fileName => fileName;
 fileName => kuchinashi.read;
+//4200000 => kuchinashi.pos;
 0 => kuchinashi.pos;
 
 
 fun void playKuchinashi() {
 	while (true) {
-		0.95 => kuchinashi.gain;
+		0.75 => kuchinashi.gain;
 		0.1::second => now;
 	}
 }
@@ -55,14 +56,14 @@ fun void playBeat() {
 	while (true) {
 		length-0.3 => float l;
 		tempo-l => float tl;
-<<< "length: ", length >>>;
-		0.02 => osc2.gain;
+//<<< "length: ", length >>>;
+		0.007 => osc2.gain;
 		0.07:: second => now;
 		
 		0 => osc2.gain;
 		tl::second => now;
 			
-		0.02 => osc2.gain;
+		0.007 => osc2.gain;
 		0.07:: second => now;
 			
 		0 => osc2.gain;
@@ -80,23 +81,24 @@ fun void playBeat2() {
 	while (true) {
 		length2-0.2 => float l2;
 		tempo-l2 => float tl2;
+//<<< "length2: ", length2 >>>;
 
 		0.0 => osc4.gain;
 		tl2::second => now;
 
-		0.0000001 => osc4.gain;
-		0.2:: second => now;
+		0.008 => osc4.gain;
+		0.3:: second => now;
 		
 		0 => osc4.gain;
 		l2::second => now;
 		
-		0.0000001 => osc4.gain;
-		0.2:: second => now;
+		0.008 => osc4.gain;
+		0.3:: second => now;
 			
-		if (length2>(tempo-0.2)) {
+		if (length2>(tempo-0.3)) {
 			0.2 => length2;
 		} else {
-			length2+ 0.15 => length2;
+			length2+ 0.3 => length2;
 		}	
 	}
 }
@@ -106,8 +108,8 @@ spork ~ playBeat();
 spork ~ playBeat2();
 
 while (true) {
-	0.01 => sNoise.gain;
-	0.05 => osc4.gain;
-	0.01 => osc6.gain;
+	0.003 => sNoise.gain;
+	0.008 => osc4.gain;
+	0.008 => osc6.gain;
 	1::second => now;
 }
