@@ -43,20 +43,18 @@ fun void playBeat() {
 	while (true) {
 		if (beat % MOD == 0) {
 			shak.controlChange(1071, 21);
-			0.5 => shak.gain;
-			<<<"MOD 0">>>;
+//			<<<"MOD 0">>>;
 		} else if (beat % MOD == 3 || beat % MOD == 1) {
 			shak.controlChange(1071, 14);
-			0.5 => shak.gain;
-			<<<"MOD 1 3">>>;
+//			<<<"MOD 1 3">>>;
 		} else {
 			shak.controlChange(1071, 5);
-			0.5 => shak.gain;
-			<<<"MOD 2">>>;
+//			<<<"MOD 2">>>;
 		}
 		
+		0.5 => shak.gain;
 		1 => shak.noteOn;
-		4.5::second => now;
+		6::second => now;
 		
 		beat++;
 		<<< beat>>>;
@@ -67,14 +65,13 @@ spork ~ playDaidai();
 spork ~ playBeat();
 
 while (true) {
-	0.0025 => noise.gain;
-	0.0025 => osc.gain;
-	0.0025 => osc3.gain;
-	0.0025 => osc4.gain;
+	0.002 => noise.gain;
+	0.003 => osc.gain;
+	0.003 => osc3.gain;
+	0.003 => osc4.gain;
 	1::second => now;
 
 }
-
 
 //5, 11, 13/ 14, (15), 16, 17, (19), 22
 // NRev  JCRev

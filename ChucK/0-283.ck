@@ -15,8 +15,8 @@ me.dir(-1) => path;
 
 path + fileName => fileName;
 fileName => zakuro.read;
-6000000 => zakuro.pos;
-//0 => zakuro.pos;
+//6000000 => zakuro.pos;
+0 => zakuro.pos;
 
 //<<< "path", me.dir() >>>;
 //<<< "fileName", fileName >>>;
@@ -28,11 +28,17 @@ fileName => zakuro.read;
 lowest => float frq2;
 
 0.5 => float ratio;
-0.03 => osc.gain;          
-0.045 => osc2.gain;  
-0.03 => osc3.gain;          
-0.045 => osc4.gain;
-0.003 => noise.gain;
+//0.03 => osc.gain;          
+//0.045 => osc2.gain;  
+//0.03 => osc3.gain;          
+//0.045 => osc4.gain;
+//0.003 => noise.gain;
+
+0.02 => osc.gain;          
+0.02 => osc2.gain;  
+0.02 => osc3.gain;          
+0.02 => osc4.gain;
+0.002 => noise.gain;
           
 fun void playZakuro() {
 	while (true) {
