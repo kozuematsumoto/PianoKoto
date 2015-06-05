@@ -1,12 +1,16 @@
 SinOsc osc => JCRev rev =>dac;
 SinOsc osc2 => JCRev rev2 =>dac;
 SinOsc osc3 => JCRev rev3 =>dac;
-SinOsc osc4 => JCRev rev4 =>dac;
+SinOsc osc4 => JCRev rev4 => dac;
 Noise noise =>dac;
 
 SndBuf zakuro => dac;
 
-Shakers shak => JCRev rev5 => dac;
+//Shakers shak => JCRev rev5 => dac;
+Shakers shak => BiQuad rz => ADSR env => dac;
+
+env.set(0.1 :: second, 1 :: second, 3, 1 :: second);
+1 => env.keyOn;
 
 string path, fileName;
 me.dir(-1) => path;
@@ -43,19 +47,20 @@ fun void bell() {
 	33::second => now;
 	
 	while (true) {
-		Math.random2(15, 35) => int timing;
+		Math.random2(15, 25) => int timing;
+//		Math.random2(3, 5) => int timing;
 		Math.random2(1000, 2000) => int rf;
-//		<<< "timing", timing >>>;
+		<<< "timing", timing >>>;
 //		<<< "rf", rf >>>;
 		1 => shak.noteOn;
 		shak.controlChange(1071, 22);
 		shak.controlChange(1, rf);
 		shak.controlChange(2, 2500);
-		shak.controlChange(4, 32);
+		shak.controlChange(4, 62);
 		shak.controlChange(128, 316);
 		shak.controlChange(11, 500);
 
-		0.6 => shak.gain;
+		0.2 => shak.gain;
 		timing::second => now;
 	}
 }
